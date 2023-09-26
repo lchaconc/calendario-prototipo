@@ -17,8 +17,8 @@ export default function ReactCalendar({ eventos, setEventosDelDia  }) {
 
     // Obtener el día
     const dia = fecha.getDate();
-    console.log("Mes:", mes);
-    console.log("Día:", dia);
+    //console.log("Mes:", mes);
+    //console.log("Día:", dia);
     filtrarEventoPordia(dia, mes);
 
   };
