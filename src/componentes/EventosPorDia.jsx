@@ -76,9 +76,11 @@ export default function EventosPorDia({ categorias, eventosDelDia }) {
   };
 
   return (
-    <>
-      <h2>Calendario</h2>
+    <>      
       <div className="row">
+        <div className="col-6">
+        <h2>Eventos por día</h2> 
+        </div>
         <div className="col-6">
           <div className="input-group mb-3">
             <label className="input-group-text" htmlFor="inputGroupSelect01">
@@ -102,11 +104,13 @@ export default function EventosPorDia({ categorias, eventosDelDia }) {
           </div>
         </div>
       </div>
+
+      <div className="row">
       {filtrados &&
         filtrados.map((evento) => (
           <div
             role={"button"}
-            className="alert alert-info"
+            className="alert alert-info col-12"
             key={evento.id}
             onClick={() => toggleCaption(evento.id)}
           >
@@ -171,6 +175,12 @@ export default function EventosPorDia({ categorias, eventosDelDia }) {
             )}
           </div>
         ))}
+      </div>
+
+
+     
+
+
     </>
   );
 }
