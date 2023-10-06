@@ -1,9 +1,20 @@
-export default function EventosPorMes({ eventos }) {
+import { useState, useEffect } from "react";
 
-const handleObtenerPalabra =(e)=> {
-        const palabra = e.target.value;
-        console.log(buscarEnTitulo(palabra));
-}
+export default function EventosPorMes({ eventos }) {
+  const [eventosFiltrados, setEventosFiltrados] = useState(null);
+
+  useEffect(() => {
+    setup();
+  }, []);
+
+  const setup = () => {
+    setEventosFiltrados(eventos);
+  };
+
+  const handleObtenerPalabra = (e) => {
+    const palabra = e.target.value;    
+    setEventosFiltrados(buscarEnTitulo(palabra) );
+  };
 
   const buscarEnTitulo = (palabra) => {
     return eventos.filter((item) =>
@@ -35,7 +46,8 @@ const handleObtenerPalabra =(e)=> {
           <h2>Eventos del mes</h2>
         </div>
       </div>
-      {eventos.map((evento) => (
+      {eventosFiltrados &&
+      eventosFiltrados.map((evento) => (
         <div className="row" key={evento.id}>
           <div className="col-12 alert alert-success">
             {evento.rango}
