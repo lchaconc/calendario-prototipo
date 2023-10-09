@@ -13,14 +13,36 @@ export default function EventosPorMes({ eventos }) {
 
   const handleObtenerPalabra = (e) => {
     const palabra = e.target.value;    
-    setEventosFiltrados(buscarEnTitulo(palabra) );
+    setEventosFiltrados(buscarEnTituloSinTildes(palabra) );
   };
 
-  const buscarEnTitulo = (palabra) => {
+  
+  const buscarEnTitulo = (palabra) => {    
     return eventos.filter((item) =>
-      item.titulo.toLowerCase().includes(palabra.toLowerCase())
+      item.titulo.toLowerCase().includes(palabra.toLowerCase() )
     );
   };
+
+  //quita tildes, carcateres especiales y la convierte a minúscula
+const normalizar=(palabra)=> {
+  return palabra.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
+}
+  
+
+const buscarEnTituloSinTildes = (palabra) => {
+  palabra = normalizar(palabra)
+  const resultados = [];
+
+  for (const evento of eventos) {
+    const tituloNormalizado = normalizar (evento.titulo)
+    if (tituloNormalizado.includes(palabra)) {
+      resultados.push(evento);
+    }
+  }
+
+  return resultados;
+}
 
   return (
     <div className="container">

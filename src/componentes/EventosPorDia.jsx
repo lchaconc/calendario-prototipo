@@ -34,9 +34,7 @@ export default function EventosPorDia({ categorias, eventosDelDia }) {
     }
   };
 
-const quitartildes =(str)=> {
-  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
+
 
   const createGoogleCalendarLink = (evento) => {
     const base = "https://www.google.com/calendar/render?action=TEMPLATE";
