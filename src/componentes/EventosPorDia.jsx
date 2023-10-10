@@ -1,77 +1,31 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import DetalleEventos from "./DetalleEventos";
+import SelectCategorias from "./SelectCategorias";
 
-
-
-export default function EventosPorDia({ categorias, eventosDelDia }) {  
-  const [filtrados, setFiltrados] = useState(null);
-  const categoriasRef = useRef(null);
-
-  
-
-  useEffect(() => {
-    filtrarEventos();
-  }, [eventosDelDia]);
-
-  function buscarPorCategoria(id) {
-    return eventosDelDia.filter((evento) => evento.idCategoria === id);
-  }
-
-  const filtrarEventos = () => {
-    if (eventosDelDia) {
-      const idCatSeleccionada = categoriasRef.current.value;
-      if (idCatSeleccionada === "Todas") {
-        setFiltrados(eventosDelDia);
-      } else {
-        setFiltrados(buscarPorCategoria(idCatSeleccionada));
-      }
-    }
-  };
-
-
-
+export default function EventosPorDia({ categorias, eventos }) {
+  const [filtrados, setFiltrados] = useState(eventos);
 
   return (
-    <>      
+    <>
       <div className="row">
         <div className="col-6">
-        <h2>Eventos por día</h2> 
+          <h2>Eventos por día</h2>
         </div>
         <div className="col-6">
-          <div className="input-group mb-3">
-            <label className="input-group-text" htmlFor="inputGroupSelect01">
-              Categoría:
-            </label>
-            <select
-              className="form-select"
-              id="inputGroupSelect01"
-              ref={categoriasRef}
-              onChange={filtrarEventos}
-            >
-              <option defaultValue="">Todas</option>
-              {categorias &&
-                categorias.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {" "}
-                    {cat.nombre}{" "}
-                  </option>
-                ))}
-            </select>
-          </div>
+          <SelectCategorias
+            eventos={eventos}
+            categorias={categorias}
+            setFiltrados={setFiltrados}
+          />
         </div>
       </div>
 
       <div className="row">
-      {filtrados &&
-        filtrados.map((evento) => (
-          <DetalleEventos evento={evento} className="alert-info" />
-        ))}
+        {filtrados &&
+          filtrados.map((evento) => (
+            <DetalleEventos evento={evento} className="alert-info" />
+          ))}
       </div>
-
-
-     
-
-
     </>
   );
 }

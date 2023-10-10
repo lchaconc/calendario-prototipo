@@ -28,7 +28,7 @@ function App() {
           {selectedView == "dia" && (
             <EventosPorDia
               categorias={categorias}
-              eventosDelDia={eventosDelDia}
+              eventos={eventosDelDia}
             />
           )}
           {selectedView == "mes" && (
