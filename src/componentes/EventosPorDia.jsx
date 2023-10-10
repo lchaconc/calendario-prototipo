@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import DetalleEventos from "./DetalleEventos";
 import SelectCategorias from "./SelectCategorias";
-import Buscador from "./Buscador";
 
-export default function EventosPorDia({ categorias, eventos }) {
-  const [filtradosCat, setFiltradosCat] = useState(eventos);
+export default function EventosPorDia({ categorias, eventos }) {  
   const [filtrados, setFiltrados] = useState(eventos);
 
   useEffect(() => {
-    eventos && setFiltradosCat(eventos)
-    console.log("eventosaaaaaaa", eventos);
-
+    eventos && setFiltrados(eventos)    
   }, [eventos]);
 
   return (
@@ -25,27 +21,15 @@ export default function EventosPorDia({ categorias, eventos }) {
           <SelectCategorias
             eventos={eventos}
             categorias={categorias}
-            setFiltrados={setFiltradosCat}
+            setFiltrados={setFiltrados}
           />        
-        </div>
-        
-{
-  /*
-        <div className="col-6">
-          <Buscador 
-          eventos={filtrados}
-          setFiltrados={setFiltrados}
-          />
-        </div>
-  */
-}
-
+        </div>     
       </div>
 
 
       <div className="row">
-        {filtradosCat &&
-          filtradosCat.map((evento) => (
+        {filtrados &&
+          filtrados.map((evento) => (
             <DetalleEventos evento={evento} className="alert-info" />
           ))}
       </div>

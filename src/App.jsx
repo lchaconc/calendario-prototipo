@@ -37,6 +37,7 @@ function App() {
           )}
           {selectedView == "mes" && (
             <EventosPorMes
+              categorias={categorias}
               eventos={eventos}
             />
           )}

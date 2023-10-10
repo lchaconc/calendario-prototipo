@@ -1,8 +1,10 @@
 import { useState } from "react";
 import DetalleEventos from "./DetalleEventos";
 import Buscador from "./Buscador";
+import BuscadorGeneral from "./BuscadorGeneral";
 
-export default function EventosPorMes({ eventos }) {
+
+export default function EventosPorMes({ eventos, categorias }) {
   const [filtrados, setFiltrados] = useState(eventos);
 
 
@@ -10,11 +12,7 @@ export default function EventosPorMes({ eventos }) {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12">
-        <Buscador eventos={eventos} setFiltrados={setFiltrados} />
-        </div>
-      </div>
+      <BuscadorGeneral eventos={eventos} categorias={categorias} setFiltrados={setFiltrados} />
 
       <div className="row">
         <div className="col-12">
