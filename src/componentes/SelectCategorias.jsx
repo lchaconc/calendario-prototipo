@@ -1,12 +1,18 @@
+import { useEffect } from "react";
 
-export default function SelectCategorias({ eventos, categorias, setFiltrados }) {
+export default function SelectCategorias({
+  eventos,
+  categorias,
+  setFiltrados,
+}) {
 
-    console.log("eventos >>>>>",eventos);
+    
+  useEffect(() => {
+    console.log("eventos >>>>>", eventos);
     setFiltrados(eventos);
-  
-  
-  
-    function buscarPorCategoria(id) {
+  }, []);
+
+  function buscarPorCategoria(id) {
     return eventos.filter((evento) => evento.idCategoria === id);
   }
 

@@ -1,5 +1,11 @@
+import  { useEffect } from 'react';
+
 export default function Buscador({eventos, setFiltrados }) {
 
+
+useEffect(() => {
+    eventos && setFiltrados(eventos)
+}, [eventos]);
 
     const handleObtenerPalabra = (e) => {
         const palabra = e.target.value;    

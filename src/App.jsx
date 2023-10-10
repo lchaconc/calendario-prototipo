@@ -11,6 +11,10 @@ function App() {
   const [eventosDelDia, setEventosDelDia] = useState([]);
   const [selectedView, setSelectedView] = useState("dia");
 
+  useEffect(() => {
+    console.log("eventosDelDia ******>", eventosDelDia);
+  }, [eventosDelDia]);
+
   return (
     <div className="container mt-2">
       <div className="row">
