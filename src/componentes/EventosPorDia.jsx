@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import DetalleEventos from "./DetalleEventos";
 
 
 
@@ -63,7 +64,7 @@ export default function EventosPorDia({ categorias, eventosDelDia }) {
       <div className="row">
       {filtrados &&
         filtrados.map((evento) => (
-          <h1> {evento.titulo} </h1>
+          <DetalleEventos evento={evento} className="alert-info" />
         ))}
       </div>
 

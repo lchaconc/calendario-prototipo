@@ -43,7 +43,7 @@ const createGoogleCalendarLink = (evento) => {
     return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
   };
 
-export default function DetalleEventos({evento}) {
+export default function DetalleEventos({evento, className }) {
     const [itemStates, setItemStates] = useState({});
     
     const toggleCaption = (itemId) => {
@@ -56,8 +56,8 @@ export default function DetalleEventos({evento}) {
 
     return (
         <div
-            role={"button"}
-            className="alert alert-info col-12"
+            role={"button"}            
+            className=  {`alert ${className} col-12`}
             key={evento.id}
             onClick={() => toggleCaption(evento.id)}
           >
