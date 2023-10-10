@@ -6,6 +6,7 @@ import categorias from "./data/categorias.json";
 import EventosPorDia from "./componentes/EventosPorDia";
 import MenuVistas from "./componentes/MenuVistas";
 import EventosPorMes from "./componentes/EventosPorMes";
+import EventosPorMesSelect from "./componentes/EventosPorMesSelect";
 
 function App() {
   const [eventosDelDia, setEventosDelDia] = useState([]);
@@ -36,7 +37,7 @@ function App() {
             />
           )}
           {selectedView == "mes" && (
-            <EventosPorMes
+            <EventosPorMesSelect
               categorias={categorias}
               eventos={eventos}
             />

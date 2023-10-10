@@ -1,14 +1,57 @@
 [
     {
         "id": "1",
-        "nombre": "Educación Técnica"
+        "nombre": "Administrativo",
+        "subcategorias": [
+            {
+                "id":"educacion-personas-jovenes-adultos",
+                "etiqueta": "Educación Personas Jóvenes y Adultas"
+            },
+            {
+                "id":"alta-dotacion",
+                "etiqueta": "Alta Dotación"
+            },
+            {
+                "id":"educacion-tecnica",
+                "etiqueta": "Educación Técnica"
+            }          
+        ]
     },
     {
         "id": "2",
-        "nombre": "Curso lectivo y períodos"
+        "nombre": "Participación estudiantil",
+        "subcategorias": [
+            {
+                "id": "servicio-comunal",
+                "etiqueta": "Servicio Comunal"                
+            },
+            {
+                "id": "gobiernos-estudiantiles",
+                "etiqueta": "Gobiernos estudiantiles"                
+            },
+            {
+                "id": "festival-estudiantil-artes",
+                "etiqueta": "Festival estudiantil de las artes"                
+            }
+        ]
     },
     {
         "id": "3",
-        "nombre": "Efemérides"
+        "nombre": "Efemérides",
+        "subcategorias": [
+            {
+                "id":"semana-festiva",
+                "etiqueta":"Semana Festiva"
+            },
+            {
+                "id":"feriado",
+                "etiqueta":"Feriado"
+            },
+            {
+                "id":"acto-civico",
+                "etiqueta":"Acto Cívico"
+            }
+        ]
     }
+
 ]
