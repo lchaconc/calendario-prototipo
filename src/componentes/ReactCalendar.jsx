@@ -5,13 +5,18 @@ import "react-calendar/dist/Calendar.css";
 const MAX_DATE = new Date("12-31-2023");
 const MIN_DATE = new Date("01-01-2023");
 
-export default function ReactCalendar({ eventos, setEventosDelDia  }) {
+export default function ReactCalendar({ eventos, setEventosDelDia, setFechaISO  }) {
   //console.log(eventos);
 
 
   const handleSelect = (fechaISO) => {
-    // Crear un objeto Date a partir de la cadena
+
+    setFechaISO(fechaISO);
+
+    // Crear un objeto Date a partir de la cadena  
     const fecha = new Date(fechaISO);
+    
+
     // Obtener el mes (los meses en JavaScript van de 0 a 11, por lo que se suma 1 para obtener el mes real)
     const mes = fecha.getMonth() + 1;
 

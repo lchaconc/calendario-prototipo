@@ -7,10 +7,12 @@ import EventosPorDia from "./componentes/EventosPorDia";
 import MenuVistas from "./componentes/MenuVistas";
 import EventosPorMes from "./componentes/EventosPorMes";
 import EventosPorMesSelect from "./componentes/EventosPorMesSelect";
+import EventosRangos from "./componentes/EventosRangos";
 
 function App() {
   const [eventosDelDia, setEventosDelDia] = useState([]);
   const [selectedView, setSelectedView] = useState("dia");
+  const [fechaISO, setFechaISO] = useState(null);
 
   useEffect(() => {
     console.log("eventosDelDia ******>", eventosDelDia);
@@ -23,6 +25,7 @@ function App() {
           <ReactCalendar
             eventos={eventos}
             setEventosDelDia={setEventosDelDia}
+            setFechaISO={setFechaISO}
           />
         </div>
         <div className="col-8">
@@ -44,6 +47,13 @@ function App() {
           )}
         </div>
       </div>
+
+      {
+        eventos && 
+        <EventosRangos eventos={eventos} fechaISO={fechaISO} />
+      }
+
+
     </div>
   );
 }
