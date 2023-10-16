@@ -126,6 +126,19 @@
     "fechaFin": "2023-01-12",   
     "descripcion": "Introducción a la electrónica para estudiantes de Educación Técnica.",
     "etiquetas": ["adultos", "pruebas finales"]
+  },
+    {
+    "id": "45025",
+    "fecha": "2023-09-19 00:00:00",
+    "idCategoria": "1",
+    "link": "https://ejemplo25.com",
+    "nombreCategoria": "Efemérides",
+    "rango": "19 y 20 de septiembre",
+    "titulo": "Día Mundial de la Sabiduría",
+    "fechaInicio": "2023-01-01",
+    "fechaFin": "2023-01-12",   
+    "descripcion": "Celebra la conexión a la luz",
+    "etiquetas": ["adultos", "feriados"]
   }
   
 ]
